@@ -1,16 +1,41 @@
-<h2>Latest Bookmarks</h2>
-<table style="width: 100%">
-  <thead>
-    <tr>
-      <th>Url</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @bookmarks.each do |bookmark| %>
-    <tr>
-      <td><%= link_to bookmark.title, bookmark.url %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<% if current_user %>
+  <h2>Latest Bookmarks</h2>
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th>Url</th>
+      </tr>
+    </thead>
+ 
+    <tbody>
+      <% @bookmarks.each do |bookmark| %>
+        <tr>
+          <td><%= link_to bookmark.title, bookmark.url %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+ 
+<% else %>
+  <div class="panel">
+    <h1>Share your bookmarks!</h1>
+    <p>A simple app to track and share your beloved bookmarks with others.</p>
+    <%= link_to "Get started today", new_user_registration_path, :class => "button button-large" %>
+  </div>
+ 
+  <hr>
+ 
+  <div class="row">
+    <div class="large-8 columns">
+      <h3>Bookmark App Name</h3>
+      <p>
+      Texttttttttttt
+      </p>
+      <p><a class="" href="http://rae-farine.net" target="_blank">Learn more</a>.</p>
+    </div>
+    <div class="large-4 columns">
+      <h3>About this app</h3>
+      <p>Bl;ahblahdsajds adsa hjasdads kiadsoads nads masd oasdosad </p>
+    </div>
+  </div>
+<% end %>
